@@ -1,4 +1,6 @@
-FROM lockedata/docker-intror
+FROM docker pull andrie/tensorflowr
 MAINTAINER Steph Locke <steph@itsalocke.com>
-RUN sudo apt-get install -y libv8-3.14-dev && \
-    R -e 'devtools::install_github("lockedata/DOCKER-advR")' 
+RUN git clone https://github.com/lockedata/DOCKER-tensorflowr.git  && \
+    cd DOCKER-tensorflowr/  && \
+    chmod 777 ./mkusers.sh  && \
+    ./mkusers.sh 
